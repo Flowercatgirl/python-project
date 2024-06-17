@@ -20,6 +20,18 @@ class Character:
         '''
 
         # Health attribute of the target will be reduced by the damage of the attacker
-        target.health -=self.weapon.damage
+        target.health -= self.weapon.damage
         # To avoid going below zero I am using the max function
         target.health = max(target.health, 0)
+
+class Hero(Character):
+    # Class Hero inherits from the parent class Character and is a blueprint for Hero instances
+
+    def __init__(self, name: str, health: int)-> None:
+        super().__init__(name=name, health = health)
+
+class Enemy(Character):
+    # Class Enemy inherits from the parent class Character and is a blueprint for Enemies instances
+
+    def __init__(self, name: str, health: int)-> None:
+        super().__init__(name=name, health = health)
