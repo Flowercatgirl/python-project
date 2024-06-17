@@ -1,6 +1,6 @@
 import gspread
 from character import Hero, Enemy
-from weapon import short_bow
+from weapon import short_bow, iron_sword
 from google.oauth2.service_account import Credentials
 
 SCOPE = [
@@ -23,6 +23,7 @@ print(data)
 # Create 2 players
 
 hero = Hero(name = 'Hero', health = 100)
+hero.equip(iron_sword)
 enemy = Enemy(name = 'Enemy', health = 100, weapon = short_bow)
 
 while True:
