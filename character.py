@@ -44,8 +44,9 @@ class Hero(Character):
         '''
         Set a weapon to a default one (fists)
         '''
+        print(f'{self.name} dropped the {self.weapon.name}!')
         self.weapon = self.default_weapon
-        print(f'{self.name} dropped the {self.weapon}!')
+        
 
 
 class Enemy(Character):

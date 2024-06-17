@@ -34,5 +34,6 @@ while True:
     print(f'Health of {hero.name}: {hero.health}')
     print(f'Health of {enemy.name}: {enemy.health}')
 
+    hero.drop()
     input()
 
