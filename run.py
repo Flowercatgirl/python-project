@@ -1,5 +1,6 @@
 import gspread
 from character import Hero, Enemy
+from weapon import short_bow
 from google.oauth2.service_account import Credentials
 
 SCOPE = [
@@ -22,7 +23,7 @@ print(data)
 # Create 2 players
 
 hero = Hero(name = 'Hero', health = 100)
-enemy = Enemy(name = 'Enemy', health = 100)
+enemy = Enemy(name = 'Enemy', health = 100, weapon = short_bow)
 
 while True:
     # In this game loop I am calling the attack methods of both the hero and the enemy

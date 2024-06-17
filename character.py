@@ -23,6 +23,7 @@ class Character:
         target.health -= self.weapon.damage
         # To avoid going below zero I am using the max function
         target.health = max(target.health, 0)
+        print(f'{self.name} dealt {self.weapon.damage} damage to {target.name} with {self.weapon.name}')
 
 class Hero(Character):
     # Class Hero inherits from the parent class Character and is a blueprint for Hero instances
@@ -33,5 +34,6 @@ class Hero(Character):
 class Enemy(Character):
     # Class Enemy inherits from the parent class Character and is a blueprint for Enemies instances
 
-    def __init__(self, name: str, health: int)-> None:
+    def __init__(self, name: str, health: int, weapon)-> None:
         super().__init__(name=name, health = health)
+        self.weapon = weapon
