@@ -31,8 +31,8 @@ while True:
     hero.attack(enemy)
     enemy.attack(hero)
 
-    print(f'Health of {hero.name}: {hero.health}')
-    print(f'Health of {enemy.name}: {enemy.health}')
+    hero.health_bar.draw()
+    enemy.health_bar.draw()
 
     hero.drop()
     input()
