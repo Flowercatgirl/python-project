@@ -23,7 +23,7 @@ class Character:
         # To avoid going below zero I am using the max function
         target.health = max(target.health, 0)
         target.health_bar.update()
-        print(f'{self.name} dealt {self.weapon.damage} damage to {target.name} with {self.weapon.name}')
+        print(f'{self.name} fights {target.name} with {self.weapon.name}')
 
 class Hero(Character):
     # Class Hero inherits from the parent class Character and is a blueprint for Hero instances

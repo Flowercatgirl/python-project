@@ -85,3 +85,16 @@ update_game_worksheet(battle_data)
 
 
 
+# Check how many history rows are full in the worksheet
+worksheet = SHEET.get_worksheet(0)
+rows = worksheet.get_all_values()
+filled_rows = len(rows)
+
+# if there are more than 50 - delete the first row at the start
+if filled_rows > 50:
+    worksheet.delete_rows(1)
+
+
+
+
+
