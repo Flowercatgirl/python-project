@@ -12,8 +12,6 @@ class Character:
         self.health = health
         self.health_max = health
 
-        #Giving all Character objects fists as a weapon
-        self.weapon = fists
 
     def attack(self, target) -> None:
         '''
@@ -30,27 +28,12 @@ class Character:
 class Hero(Character):
     # Class Hero inherits from the parent class Character and is a blueprint for Hero instances
 
-    def __init__(self, name: str, health: int)-> None:
+    def __init__(self, name: str, health: int, weapon)-> None:
         super().__init__(name=name, health = health)
 
-        self.default_weapon = self.weapon
-        self.health_bar = HealthBar(self, color = 'green')
-
-    def equip (self, weapon) -> None:
-        '''
-        Overwrite the current weapon of a Hero
-        '''
         self.weapon = weapon
-        print(f'{self.name} equiped a (n) {self.weapon.name}!')
-
-    def drop(self):
-        '''
-        Set a weapon to a default one (fists)
-        '''
-        print(f'{self.name} dropped the {self.weapon.name}!')
-        self.weapon = self.default_weapon
-        
-        
+        self.health_bar = HealthBar(self, color = 'green')
+       
 
 
 class Enemy(Character):

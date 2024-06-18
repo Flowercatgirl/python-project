@@ -1,7 +1,8 @@
 import os
+import random
 import gspread
 from character import Hero, Enemy
-from weapon import short_bow, iron_sword
+from weapon import short_bow, iron_sword, fists
 from google.oauth2.service_account import Credentials
 
 SCOPE = [
@@ -21,11 +22,13 @@ data = sales.get_all_values()
 
 print(data)
 
-# Create 2 players
+# Create a lists of weapons
+weapons = [iron_sword, fists, short_bow]
 
-hero = Hero(name = 'Hero', health = 100)
-hero.equip(iron_sword)
-enemy = Enemy(name = 'Enemy', health = 100, weapon = short_bow)
+# Create 2 players and assign a random weapon to each
+
+hero = Hero(name = 'Hero', health = 100, weapon = random.choice(weapons))
+enemy = Enemy(name = 'Enemy', health = 100, weapon = random.choice(weapons))
 
 while hero.health != 0 and enemy.health != 0:
     # In this game loop I am calling the attack methods of both the hero and the enemy
@@ -37,6 +40,5 @@ while hero.health != 0 and enemy.health != 0:
     hero.health_bar.draw()
     enemy.health_bar.draw()
 
-    hero.drop()
     input()
 
