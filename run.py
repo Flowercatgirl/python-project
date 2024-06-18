@@ -1,4 +1,4 @@
-import os
+from os import system, name
 import random
 import gspread
 from character import Hero, Enemy
@@ -22,6 +22,17 @@ data = sales.get_all_values()
 
 print(data)
 
+# Define a terminal clear function
+def clear():
+
+    # for Windows
+    if name =='nt':
+        _ = system('cls')
+
+    # for Mac and Linux 
+    else:
+        _ = system('clear')
+
 # Create a lists of weapons
 weapons = [iron_sword, fists, short_bow]
 
@@ -33,7 +44,7 @@ enemy = Enemy(name = 'Enemy', health = 100, weapon = random.choice(weapons))
 while hero.health != 0 and enemy.health != 0:
     # In this game loop I am calling the attack methods of both the hero and the enemy
 
-    os.system('clear')
+    clear()
     hero.attack(enemy)
     enemy.attack(hero)
 
