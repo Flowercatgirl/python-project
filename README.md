@@ -52,3 +52,16 @@ This game uses Google Sheets API to store the results.
 
 I have tested this project with pycodestyle 2.12.0
 
+## Deployment
+
+This project was developed through Gitpod, using Code Institue's mock terminal for Heroku and their way of linking to Google Sheet API.
+
+## Credits
+
+* Code Instiute 'Love Sandwiches' project
+
+* [The Heroku Checklist](https://code-institute-students.github.io/heroku-update-checklist/)
+
+* [Learn Python Classes With a Text-Based Battle - OOP Tutorial](https://www.youtube.com/watch?v=cM_ocyOrs_k)
+
+* [How to clear screen in python](https://www.geeksforgeeks.org/clear-screen-python/)
