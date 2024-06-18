@@ -42,7 +42,9 @@ while hero.health != 0 and enemy.health != 0:
 
     input()
 
-if hero.health == 0:
+if hero.health == 0 and enemy.health == 0:
+    print("Let's call it a draw.")
+elif hero.health == 0:
     print(f'{enemy.name} is a Winner!!!')
 elif enemy.health == 0:
     print(f'{hero.name} is a Winner!!!')
