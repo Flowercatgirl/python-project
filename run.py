@@ -120,6 +120,4 @@ while column_index < 3:
     cell_value = worksheet.acell('B1').value
     column_index += 1
 
-print(f"{worksheet.acell('C1').value}
-      has happened {integer_sum}
-      times so far\n")
+print(f"{worksheet.acell('C1').value} has happened {integer_sum} times so far\n")
