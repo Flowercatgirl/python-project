@@ -95,7 +95,7 @@ if filled_rows > 50:
     worksheet.delete_rows(2)
 
 
-#Below is the code counting how many times hero and enemy won and raw happenned
+#Below is the code counting how many times hero and enemy won and draw happenned
 
 # Define the Character column index you want to check
 column_index = 1
