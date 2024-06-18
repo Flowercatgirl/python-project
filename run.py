@@ -1,3 +1,4 @@
+import os
 import gspread
 from character import Hero, Enemy
 from weapon import short_bow, iron_sword
@@ -26,8 +27,10 @@ hero = Hero(name = 'Hero', health = 100)
 hero.equip(iron_sword)
 enemy = Enemy(name = 'Enemy', health = 100, weapon = short_bow)
 
-while True:
+while hero.health != 0 and enemy.health != 0:
     # In this game loop I am calling the attack methods of both the hero and the enemy
+
+    os.system('clear')
     hero.attack(enemy)
     enemy.attack(hero)
 
