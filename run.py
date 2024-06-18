@@ -57,13 +57,13 @@ def get_battle_data():
     data = []
     if hero.health == 0 and enemy.health == 0:
         data = [0, 0, 1]
-        print("Let's call it a draw.")
+        print("Let's call it a draw.\n")
     elif hero.health == 0:
         data = [0, 1, 0]
-        print(f'{enemy.name} is a Winner!!!')
+        print(f'{enemy.name} is a Winner!!!\n')
     elif enemy.health == 0:
         data = [1, 0, 0]
-        print(f'{hero.name} is a Winner!!!')
+        print(f'{hero.name} is a Winner!!!\n')
 
     return data
 
@@ -90,11 +90,37 @@ worksheet = SHEET.get_worksheet(0)
 rows = worksheet.get_all_values()
 filled_rows = len(rows)
 
-# if there are more than 50 - delete the first row at the start
+# if there are more than 50 - delete the first data row at the start
 if filled_rows > 50:
-    worksheet.delete_rows(1)
+    worksheet.delete_rows(2)
 
 
+#Below is the code counting how many times hero and enemy won and raw happenned
+
+# Define the Character column index you want to check
+column_index = 1
+cell_value = worksheet.acell('A1').value
+
+while column_index<3:
+
+    # Get all values in the specified column
+    column_values = worksheet.col_values(column_index)
+
+    # Function to check if a value is an integer
+    def is_integer(value):
+        try:
+            return int(value)
+        except ValueError:
+            return None
+
+    # Sum the integer values (how many victories) in the column
+    integer_sum = sum(is_integer(value) for value in column_values if is_integer(value) is not None)
+
+    print(f"{cell_value} has won {integer_sum} times so far")
+
+    cell_value = worksheet.acell('B1').value
+    column_index+=1
 
 
+print(f"{worksheet.acell('C1').value} has happened {integer_sum} times so far\n")
 
