@@ -47,3 +47,8 @@ It has 3 main classes: Character, Weapon and Health Bar, that are stored in 3 se
 Character class has 2 subclasses: Hero and Enemy.
 
 This game uses Google Sheets API to store the results.
+
+## Testing
+
+I have tested this project with pycodestyle 2.12.0
+

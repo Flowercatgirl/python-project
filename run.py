@@ -17,29 +17,28 @@ GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('game_results')
 
 
-
 # Define a terminal clear function
 def clear():
 
     # for Windows
-    if name =='nt':
+    if name == 'nt':
         _ = system('cls')
 
-    # for Mac and Linux 
+    # for Mac and Linux
     else:
         _ = system('clear')
+
 
 # Create a lists of weapons
 weapons = [iron_sword, fists, short_bow]
 
 # Create 2 players and assign a random weapon to each
 
-hero = Hero(name = 'Hero', health = 100, weapon = random.choice(weapons))
-enemy = Enemy(name = 'Enemy', health = 100, weapon = random.choice(weapons))
-
+hero = Hero(name='Hero', health=100, weapon=random.choice(weapons))
+enemy = Enemy(name='Enemy', health=100, weapon=random.choice(weapons))
 
 while hero.health != 0 and enemy.health != 0:
-    # In this game loop I am calling the attack methods of both the hero and the enemy
+    # Calling the attack methods of both the hero and the enemy
 
     clear()
     hero.attack(enemy)
@@ -49,6 +48,7 @@ while hero.health != 0 and enemy.health != 0:
     enemy.health_bar.draw()
 
     input()
+
 
 def get_battle_data():
     '''
@@ -83,8 +83,6 @@ def update_game_worksheet(data):
 battle_data = get_battle_data()
 update_game_worksheet(battle_data)
 
-
-
 # Check how many history rows are full in the worksheet
 worksheet = SHEET.get_worksheet(0)
 rows = worksheet.get_all_values()
@@ -94,14 +92,13 @@ filled_rows = len(rows)
 if filled_rows > 50:
     worksheet.delete_rows(2)
 
-
-#Below is the code counting how many times hero and enemy won and draw happenned
+# Count how many times hero and enemy won and draw happenned
 
 # Define the Character column index you want to check
 column_index = 1
 cell_value = worksheet.acell('A1').value
 
-while column_index<3:
+while column_index < 3:
 
     # Get all values in the specified column
     column_values = worksheet.col_values(column_index)
@@ -114,13 +111,15 @@ while column_index<3:
             return None
 
     # Sum the integer values (how many victories) in the column
-    integer_sum = sum(is_integer(value) for value in column_values if is_integer(value) is not None)
+    integer_sum = sum(is_integer(value)
+                      for value in column_values
+                      if is_integer(value) is not None)
 
     print(f"{cell_value} has won {integer_sum} times so far")
 
     cell_value = worksheet.acell('B1').value
-    column_index+=1
+    column_index += 1
 
-
-print(f"{worksheet.acell('C1').value} has happened {integer_sum} times so far\n")
-
+print(f"{worksheet.acell('C1').value}
+      has happened {integer_sum}
+      times so far\n")
