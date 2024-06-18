@@ -37,3 +37,13 @@ The result gets recorded to Google Sheet, information about previos games gets r
 * Allow the user to choose between different styles of Health bars
 
 * Allow the user to choose from multiple different Enemies
+
+## Data Model
+
+This is an object oriented application.
+
+It has 3 main classes: Character, Weapon and Health Bar, that are stored in 3 separate .py files.
+
+Character class has 2 subclasses: Hero and Enemy.
+
+This game uses Google Sheets API to store the results.
