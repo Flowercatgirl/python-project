@@ -7,6 +7,8 @@ Epic Battle is a 2 Characters Command Line Interface game where Hero and Enemy f
 
 The live link can be found [here](https://epic-battle-2452b7f71b56.herokuapp.com/)
 
+[Google Sheet game_results](https://docs.google.com/spreadsheets/d/1sdG2CdFVH0bLmYMzo-3HmMyNibCLyjya37lIib3h-SU/edit?usp=sharing)
+
 ## How to play
 
 At the start of the game Hero and Enemy get randomly assigned weapons: it can be Iron Sword, Short Bow or Fists.
