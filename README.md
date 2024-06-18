@@ -18,3 +18,22 @@ By pressing enter both parties get hit until eventually the weakest gets defeate
 The game is over and the Winner is declared. 
 
 The result gets recorded to Google Sheet, information about previos games gets retrieved and displayed on the screen.
+
+## Features
+
+### Random weapon generation
+* Hero and Enemy get randomly assigned weapons: it can be Iron Sword, Short Bow or Fists.
+
+### Graphical health bar
+* Text-based graphics to show health status for both fighters.
+
+### Maintains Scores
+* The result gets recorded to Google Sheet, information about previos games gets retrieved and displayed on the screen.
+
+## Future Features
+
+* Allow the user to choose from more weapons
+
+* Allow the user to choose between different styles of Health bars
+
+* Allow the user to choose from multiple different Enemies
