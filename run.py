@@ -16,11 +16,7 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('game_results')
 
-sales = SHEET.worksheet('history')
 
-data = sales.get_all_values()
-
-print(data)
 
 # Define a terminal clear function
 def clear():
@@ -41,10 +37,11 @@ weapons = [iron_sword, fists, short_bow]
 hero = Hero(name = 'Hero', health = 100, weapon = random.choice(weapons))
 enemy = Enemy(name = 'Enemy', health = 100, weapon = random.choice(weapons))
 
+
 while hero.health != 0 and enemy.health != 0:
     # In this game loop I am calling the attack methods of both the hero and the enemy
 
-    #clear()
+    clear()
     hero.attack(enemy)
     enemy.attack(hero)
 
@@ -53,9 +50,38 @@ while hero.health != 0 and enemy.health != 0:
 
     input()
 
-if hero.health == 0 and enemy.health == 0:
-    print("Let's call it a draw.")
-elif hero.health == 0:
-    print(f'{enemy.name} is a Winner!!!')
-elif enemy.health == 0:
-    print(f'{hero.name} is a Winner!!!')
+def get_battle_data():
+    '''
+    Get battle results data
+    '''
+    data = []
+    if hero.health == 0 and enemy.health == 0:
+        data = [0, 0, 1]
+        print("Let's call it a draw.")
+    elif hero.health == 0:
+        data = [0, 1, 0]
+        print(f'{enemy.name} is a Winner!!!')
+    elif enemy.health == 0:
+        data = [1, 0, 0]
+        print(f'{hero.name} is a Winner!!!')
+
+    return data
+
+
+# Create a function to update a game worksheet
+def update_game_worksheet(data):
+    '''
+    Update history worksheet, add new row with battle result
+    '''
+
+    print('Updating the results...\n')
+    history_worksheet = SHEET.worksheet('history')
+    history_worksheet.append_row(data)
+    print('Results successfully updated.\n')
+
+
+battle_data = get_battle_data()
+update_game_worksheet(battle_data)
+
+
+
