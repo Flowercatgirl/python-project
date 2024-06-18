@@ -14,9 +14,9 @@ CREDS = Credentials.from_service_account_file('creds.json')
 
 SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
-SHEET = GSPREAD_CLIENT.open('love_sandwiches')
+SHEET = GSPREAD_CLIENT.open('game_results')
 
-sales = SHEET.worksheet('sales')
+sales = SHEET.worksheet('history')
 
 data = sales.get_all_values()
 
@@ -44,7 +44,7 @@ enemy = Enemy(name = 'Enemy', health = 100, weapon = random.choice(weapons))
 while hero.health != 0 and enemy.health != 0:
     # In this game loop I am calling the attack methods of both the hero and the enemy
 
-    clear()
+    #clear()
     hero.attack(enemy)
     enemy.attack(hero)
 
